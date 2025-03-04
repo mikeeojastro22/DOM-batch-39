@@ -23,3 +23,45 @@ sTags[2].style.backgroundColor = "green";
 
 // this will also work
 // document.querySelectorAll(".sample")[2].style.backgroundColor = "green";
+
+let about = document.getElementById("about");
+// creating a new div
+let newDiv = document.createElement("div");
+// creating a new button
+let button = document.createElement("button");
+button.textContent = "Alert!";
+button.style.color = "black";
+button.style.border = "1px";
+button.style.margin = "10px";
+button.style.padding = "15px 30px";
+button.style.borderRadius = "15px";
+button.style.backgroundColor = "orange";
+
+// putting the button inside a div
+newDiv.appendChild(button);
+// putting the div inside our about div
+about.appendChild(newDiv);
+
+function sayHey() {
+    alert("Hey!");
+}
+// first parameter - action enclosed in quotation/user action
+// second parameter - triggered function
+button.addEventListener('click', sayHey);
+
+let counter = document.getElementById("counter");
+let increment = document.getElementById("increment");
+
+function incrementOne() {
+    // This is adding number to string
+    // counter.textContent += 1;
+
+    // convert string to a number
+    let parseToNumber = parseInt(counter.textContent);
+    // parseToNumber = parseToNumber + 1;
+    parseToNumber += 1;
+    // give back new value to textContent
+    counter.textContent = parseToNumber;
+}
+
+increment.addEventListener("click", incrementOne);
