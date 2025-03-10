@@ -47,3 +47,87 @@ let navigation = document.querySelector("nav");
 console.log(navigation.innerHTML);
 console.log(navigation.innerText);
 console.log(navigation.textContent);
+
+let orange = document.getElementById("target");
+orange.classList.add("orange");
+
+document.getElementById("target2").classList.remove("orange");
+
+// this will turn the text into red
+document.getElementById("firsth2").classList.toggle("red");
+
+let second = document.getElementById("secondh2");
+second.classList.toggle("red");
+
+let league = document.getElementById("league");
+
+const superHeroes = [
+    "Batman",
+    "Superman",
+    "Wonder Woman",
+    "The Flash"
+];
+
+for(let i = 0; i < superHeroes.length; i++){
+    let newElement = document.createElement("li");
+    newElement.textContent = superHeroes[i];
+    league.appendChild(newElement);
+}
+
+for(let i = 0; i < superHeroes.length; i++){
+    league.innerHTML += `<li>${superHeroes[i]}</li>`
+}
+
+// Coding challenge
+let justiceLeagueUl = document.getElementById("justiceLeague");
+
+const justiceLeague = [
+    {
+        name: "Superman",
+        superpower: "Super strength"
+    },
+    {
+        name: "Batman",
+        superpower: "Super rich"
+    },
+    {
+        name: "Wonder Woman",
+        superpower: "Super lasso"
+    },
+    {
+        name: "The Flash",
+        superpower: "Super speed"
+    },
+    {
+        name: "Green Lantern",
+        superpower: "Super ring"
+    }
+];
+
+function toggleSuperpower(ele) {
+    ele.classList.toggle("superpower");
+}
+
+for(let i = 0; i < justiceLeague.length; i++){
+    let newHero = document.createElement("li");
+    // this div will hold the super power text and button to show or hide it
+    let newDiv = document.createElement("div");
+    let newSuperPower = document.createElement("span");
+    let toggleButton = document.createElement("button");
+
+    toggleButton.textContent = "ss";
+    newHero.textContent = justiceLeague[i].name;
+    newSuperPower.textContent = `Super Power: ${justiceLeague[i].superpower}`;
+    newSuperPower.classList.add("superpower");
+    
+    // we need to have this format so that it will invoke the function correctly
+    toggleButton.addEventListener('click', function() {
+        toggleSuperpower(newSuperPower);
+    });
+
+    // structure the elements
+    newDiv.appendChild(newSuperPower);
+    newDiv.appendChild(toggleButton);
+    newHero.appendChild(newDiv);
+    justiceLeagueUl.appendChild(newHero);
+}
